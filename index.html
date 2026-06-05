@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Fork — Fine Dining Restaurant</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- jQuery CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" data-page="home">
+        <div class="nav-logo-icon">🍽️</div>
+        <div>
+          <div class="nav-logo-text">Urban Fork</div>
+          <div class="nav-logo-sub">Fine Dining</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a data-page="home" class="active">Home</a>
+        <a data-page="about">About</a>
+        <a data-page="menu">Menu</a>
+        <a data-page="gallery">Gallery</a>
+        <a data-page="contact">Contact</a>
+      </div>
+      <div class="nav-reserve" data-page="reservation">Reserve a Table</div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== MOBILE MENU ===================== -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a data-page="home">Home</a>
+    <a data-page="about">About</a>
+    <a data-page="menu">Menu</a>
+    <a data-page="gallery">Gallery</a>
+    <a data-page="reservation">Reservation</a>
+    <a data-page="contact">Contact</a>
+  </div>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast"></div>
+
+  <!-- =======================================================
+       PAGE 1 — HOME
+  ======================================================= -->
+  <div id="page-home" class="page active">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-pattern"></div>
+      <div class="hero-content">
+        <div class="hero-text fade-in">
+          <span class="tag">Est. 2009 · Paris Inspired</span>
+          <h1>Where Every<br><em>Meal is Art</em></h1>
+          <p>Award-winning cuisine crafted from the finest seasonal ingredients, in an atmosphere of timeless elegance. Join us for an unforgettable dining experience.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" data-page="reservation">Reserve a Table</a>
+            <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);" data-page="menu">View Menu</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><span class="num" id="stat-exp">15+</span><span class="lbl">Years of<br>Excellence</span></div>
+            <div class="hero-stat"><span class="num" id="stat-dishes">80+</span><span class="lbl">Signature<br>Dishes</span></div>
+            <div class="hero-stat"><span class="num" id="stat-guests">50K+</span><span class="lbl">Happy<br>Guests</span></div>
+          </div>
+        </div>
+        <div class="hero-visual fade-in">
+          <div class="hero-img-block">
+            <div class="hero-img-bg" style="background-image:url('https://images.unsplash.com/photo-1544148103-0773bf10d330?w=700&q=80')"></div>
+            <div class="badge-floating"><div class="bf-title">Fine Dining</div><div class="bf-sub">Table Service</div></div>
+          </div>
+          <div class="hero-img-block">
+            <div class="hero-img-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80')"></div>
+          </div>
+          <div class="hero-img-block">
+            <div class="hero-img-bg" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80')"></div>
+            <div class="badge-floating"><div class="bf-title">Chef's Table</div><div class="bf-sub">Available Fri–Sat</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Strip -->
+    <section class="about-strip">
+      <div class="about-strip-inner">
+        <div class="about-strip-text fade-in">
+          <h2>A Story of Passion &amp; Flavour</h2>
+          <p>Founded by Chef Arun Perera, our restaurant brings the art of French-Mediterranean cuisine to life. Every plate tells a story rooted in tradition, elevated by innovation.</p>
+        </div>
+        <div class="about-strip-actions fade-in">
+          <a class="btn btn-outline" style="border-color:rgba(200,134,10,0.5);color:var(--primary-light);" data-page="about">Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Dishes -->
+    <section class="featured">
+      <div class="container">
+        <div class="section-header text-center fade-in">
+          <span class="tag">Signature Selection</span>
+          <h2>Chef's Recommended Dishes</h2>
+          <div class="divider"></div>
+          <p style="max-width:520px;margin:0 auto;">Crafted with the finest seasonal produce, our signature dishes represent the pinnacle of culinary artistry.</p>
+        </div>
+        <div class="dishes-grid">
+          <div class="dish-card fade-in">
+            <div class="dish-img" style="background-image:url('anh-nguyen-kcA-c3f_3FE-unsplash.jpg')">
+              <span class="dish-badge chef">Chef's Pick</span>
+            </div>
+            <div class="dish-body">
+              <h3>Filet Mignon</h3>
+              <p>8oz prime beef, red wine reduction, truffle pomme purée, haricots verts.</p>
+              <div class="dish-footer">
+                <span class="dish-price">Rs.1500</span>
+                <button class="dish-add" aria-label="Add to order">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="dish-card fade-in">
+            <div class="dish-img" style="background-image:url('photo-1519708227418-c8fd9a32b7a2.jpg')">
+              <span class="dish-badge popular">Popular</span>
+            </div>
+            <div class="dish-body">
+              <h3>Salmon En Croûte</h3>
+              <p>Atlantic salmon wrapped in puff pastry, dill cream sauce, asparagus.</p>
+              <div class="dish-footer">
+                <span class="dish-price">Rs.1750</span>
+                <button class="dish-add" aria-label="Add to order">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="dish-card fade-in">
+            <div class="dish-img" style="background-image:url('photo-1476124369491-e7addf5db371.jpg')">
+              <span class="dish-badge veg">Vegetarian</span>
+            </div>
+            <div class="dish-body">
+              <h3>Wild Mushroom Risotto</h3>
+              <p>Porcini mushrooms, aged parmesan, white truffle oil, fresh chervil.</p>
+              <div class="dish-footer">
+                <span class="dish-price">Rs.2000</span>
+                <button class="dish-add" aria-label="Add to order">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top:40px;">
+          <a class="btn btn-outline" data-page="menu">View Full Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header text-center fade-in">
+          <span class="tag">Guest Reviews</span>
+          <h2>What Our Guests Say</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card fade-in">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"An extraordinary experience from start to finish. The filet mignon was perfection and the service was impeccable. Maison Aurel is now our favourite restaurant in the city."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">SC</div>
+              <div><div class="reviewer-name">Sophie Chen</div><div class="reviewer-date">March 2025</div></div>
+            </div>
+          </div>
+          <div class="review-card fade-in">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The tasting menu was a revelation. Every course told a story, and the wine pairings were inspired. I have dined at Michelin-starred restaurants worldwide — this ranks among the best."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">JM</div>
+              <div><div class="reviewer-name">James Mitchell</div><div class="reviewer-date">January 2025</div></div>
+            </div>
+          </div>
+          <div class="review-card fade-in">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"We celebrated our anniversary here and it was magical. The atmosphere, the food, the attention to detail — everything was flawless. The chocolate fondant alone is worth the trip."</p>
+            <div class="reviewer">
+              <div class="reviewer-avatar">AR</div>
+              <div><div class="reviewer-name">Amira Rahman</div><div class="reviewer-date">February 2025</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-inner fade-in">
+          <h2>Ready for an Unforgettable Evening?</h2>
+          <p>Secure your table today and let us create a dining experience you will cherish forever.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" data-page="reservation">Book a Table</a>
+            <a class="btn btn-white" data-page="contact">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (shared) -->
+    <div id="footer-home"></div>
+  </div><!-- end page-home -->
+
+
+  <!-- =======================================================
+       PAGE 2 — ABOUT
+  ======================================================= -->
+  <div id="page-about" class="page">
+    <div class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="tag">Our Heritage</span>
+        <h1>About Urban Fork</h1>
+      </div>
+    </div>
+
+    <!-- Story -->
+    <section class="section-pad" style="background:var(--cream)">
+      <div class="container">
+        <div class="about-story">
+          <div class="about-img-wrap fade-in">
+            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=700&q=80" alt="Chef Arun in the kitchen" />
+            <div class="about-img-accent">Est.<br>2009</div>
+          </div>
+          <div class="about-content fade-in">
+            <span class="tag">Our Story</span>
+            <h2>A Culinary Journey Born from Passion</h2>
+            <div class="divider left"></div>
+            <p>Urban Fork was founded in 2009 by acclaimed chef Arun Perera, who trained under legendary Parisian chefs before bringing his refined craft to a new home. His vision was simple: to create a restaurant where every guest feels like a cherished friend.</p>
+            <p>Over fifteen years, we have grown from a intimate twenty-seat bistro into an award-winning destination restaurant, whilst remaining true to our founding philosophy — that great food demands great ingredients, great technique, and above all, great heart.</p>
+            <p>Today, Urban Fork holds two prestigious dining awards and continues to push the boundaries of French-Mediterranean cuisine with seasonal menus that celebrate local producers and global inspiration.</p>
+            <a class="btn btn-primary" data-page="reservation" style="margin-top:8px">Reserve a Table</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section-pad" style="background:var(--cream2)">
+      <div class="container">
+        <div class="section-header text-center fade-in">
+          <span class="tag">Our Philosophy</span>
+          <h2>What We Believe In</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="values-grid">
+          <div class="value-item fade-in">
+            <span class="value-icon">🌿</span>
+            <h4>Seasonal &amp; Local</h4>
+            <p>We source from local farms and markets, letting nature guide our seasonal menus.</p>
+          </div>
+          <div class="value-item fade-in">
+            <span class="value-icon">👨‍🍳</span>
+            <h4>Artisan Craft</h4>
+            <p>Every dish is handcrafted with technique refined over decades of culinary excellence.</p>
+          </div>
+          <div class="value-item fade-in">
+            <span class="value-icon">🤝</span>
+            <h4>Warm Hospitality</h4>
+            <p>We treat every guest as family, ensuring a warm and memorable experience every visit.</p>
+          </div>
+          <div class="value-item fade-in">
+            <span class="value-icon">🍷</span>
+            <h4>Curated Wines</h4>
+            <p>Our sommelier selects wines from small, passionate producers across Europe and beyond.</p>
+          </div>
+          <div class="value-item fade-in">
+            <span class="value-icon">♻️</span>
+            <h4>Sustainability</h4>
+            <p>Committed to zero-waste cooking and sustainable practices throughout our operation.</p>
+          </div>
+          <div class="value-item fade-in">
+            <span class="value-icon">⭐</span>
+            <h4>Award-Winning</h4>
+            <p>Recognised by industry leaders for culinary innovation and exceptional service standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section-pad" style="background:var(--cream)">
+      <div class="container">
+        <div class="section-header text-center fade-in">
+          <span class="tag">The People</span>
+          <h2>Meet Our Team</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="team-grid">
+          <div class="team-card fade-in">
+            <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?w=400&q=80')"></div>
+            <div class="team-info"><h4>Arya Silva</h4><div class="team-role">Executive Chef &amp; Founder</div></div>
+          </div>
+          <div class="team-card fade-in">
+            <div class="team-photo" style="background-image:url('https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80')"></div>
+            <div class="team-info"><h4>Claude Saranga</h4><div class="team-role">Head Pastry Chef</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-about"></div>
+  </div><!-- end page-about -->
+
+
+  <!-- =======================================================
+       PAGE 3 — MENU
+  ======================================================= -->
+  <div id="page-menu" class="page">
+    <div class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="tag">Our Offerings</span>
+        <h1>The Menu</h1>
+      </div>
+    </div>
+
+    <section class="section-pad" style="background:var(--cream)">
+      <div class="container">
+        <!-- Filters -->
+        <div class="menu-filters fade-in">
+          <button class="filter-btn active" data-category="all">All Dishes</button>
+          <button class="filter-btn" data-category="starters">Starters</button>
+          <button class="filter-btn" data-category="mains">Main Courses</button>
+          <button class="filter-btn" data-category="desserts">Desserts</button>
+          <button class="filter-btn" data-category="drinks">Drinks &amp; Wine</button>
+        </div>
+
+        <!-- Loader (AJAX simulation) -->
+        <div id="menu-loader">
+          <div class="spinner-ring"></div>
+          <p>Loading menu…</p>
+        </div>
+
+        <!-- Menu Grid (populated by jQuery AJAX) -->
+        <div id="menu-grid" class="menu-grid"></div>
+      </div>
+    </section>
+
+    <div id="footer-menu"></div>
+  </div><!-- end page-menu -->
+
+
+  <!-- =======================================================
+       PAGE 4 — GALLERY
+  ======================================================= -->
+  <div id="page-gallery" class="page">
+    <div class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="tag">Visual Journey</span>
+        <h1>Our Gallery</h1>
+      </div>
+    </div>
+
+    <section class="section-pad" style="background:var(--cream)">
+      <div class="container">
+        <div class="section-header text-center fade-in">
+          <span class="tag">Photography</span>
+          <h2>A Feast for the Eyes</h2>
+          <div class="divider"></div>
+          <p style="max-width:500px;margin:0 auto;">From our intimate dining room to every artfully plated dish — explore the world of Urban Fork.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item fade-in" data-full="photo-1414235077428-338989a2e8c0.jpg">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>The Dining Room</h4><p>Evening ambiance</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="pngwing.com (1).png">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=600&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Filet Mignon</h4><p>Chef's signature dish</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=90">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Wine Cellar</h4><p>Over 400 labels</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=90">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Seasonal Plate</h4><p>Market-fresh ingredients</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=1200&q=90">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Crème Brûlée</h4><p>Classic French dessert</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=1200&q=90">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Behind the Pass</h4><p>Our brigade at work</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=90">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Private Dining</h4><p>Exclusive events space</p></div></div>
+          </div>
+          <div class="gallery-item fade-in" data-full="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=1200&q=90">
+            <div class="gallery-img" style="background-image:url('https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=600&q=80')"></div>
+            <div class="gallery-overlay"><div class="gallery-caption"><h4>Signature Cocktail</h4><p>The Aurel Mule</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-gallery"></div>
+  </div><!-- end page-gallery -->
+
+
+  <!-- =======================================================
+       PAGE 5 — RESERVATION
+  ======================================================= -->
+  <div id="page-reservation" class="page">
+    <div class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="tag">Book Your Experience</span>
+        <h1>Reserve a Table</h1>
+      </div>
+    </div>
+
+    <section class="section-pad" style="background:var(--cream)">
+      <div class="container">
+        <div class="reservation-layout">
+
+          <!-- Reservation Form -->
+          <div class="res-form-card fade-in">
+            <h3>Make a Reservation</h3>
+            <form id="reservation-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="res-name">Full Name *</label>
+                  <input type="text" id="res-name" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="res-email">Email Address *</label>
+                  <input type="email" id="res-email" placeholder="you@example.com" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="res-phone">Phone Number</label>
+                <input type="tel" id="res-phone" placeholder="+1 (555) 000-0000" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="res-date">Date *</label>
+                  <input type="date" id="res-date" required />
+                </div>
+                <div class="form-group">
+                  <label for="res-time">Time *</label>
+                  <select id="res-time" required>
+                    <option value="">Select time</option>
+                    <option>12:00 PM</option>
+                    <option>12:30 PM</option>
+                    <option>1:00 PM</option>
+                    <option>1:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                    <option>9:00 PM</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="res-guests">Number of Guests *</label>
+                <select id="res-guests" required>
+                  <option value="">Select guests</option>
+                  <option>1 Guest</option>
+                  <option>2 Guests</option>
+                  <option>3 Guests</option>
+                  <option>4 Guests</option>
+                  <option>5 Guests</option>
+                  <option>6 Guests</option>
+                  <option>7–10 Guests</option>
+                  <option>10+ Guests (Private Event)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="res-occasion">Special Occasion</label>
+                <select id="res-occasion">
+                  <option value="">None</option>
+                  <option>Birthday</option>
+                  <option>Anniversary</option>
+                  <option>Business Dinner</option>
+                  <option>Proposal</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="res-notes">Special Requests</label>
+                <textarea id="res-notes" placeholder="Dietary requirements, seating preferences, allergies…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">Reserve My Table</button>
+            </form>
+          </div>
+
+          <!-- Info Side -->
+          <div class="res-info fade-in">
+            <h3>Plan Your Visit</h3>
+            <p>We look forward to welcoming you. For large parties or private events, please contact us directly.</p>
+            <div class="info-blocks">
+              <div class="info-block">
+                <div class="info-block-icon">🕐</div>
+                <div>
+                  <h4>Opening Hours</h4>
+                  <p>Monday – Friday: 12:00 PM – 2:30 PM &amp; 6:00 PM – 10:30 PM<br>Saturday – Sunday: 11:30 AM – 3:00 PM &amp; 5:30 PM – 11:00 PM</p>
+                </div>
+              </div>
+              <div class="info-block">
+                <div class="info-block-icon">📍</div>
+                <div>
+                  <h4>Location</h4>
+                  <p>37/3/E, Highlevel Road, Colombo 05</p>
+                </div>
+              </div>
+              <div class="info-block">
+                <div class="info-block-icon">📞</div>
+                <div>
+                  <h4>Phone Reservations</h4>
+                  <p>011 2 123 456<br>Available daily 9:00 AM – 9:00 PM</p>
+                </div>
+              </div>
+              <div class="info-block">
+                <div class="info-block-icon">ℹ️</div>
+                <div>
+                  <h4>Reservation Policy</h4>
+                  <p>We hold your table for 15 minutes. Please notify us of any changes at least 24 hours in advance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-reservation"></div>
+  </div><!-- end page-reservation -->
+
+
+  <!-- =======================================================
+       BONUS PAGE — CONTACT
+  ======================================================= -->
+  <div id="page-contact" class="page">
+    <div class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="tag">Get in Touch</span>
+        <h1>Contact Us</h1>
+      </div>
+    </div>
+
+    <section class="section-pad" style="background:var(--cream)">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <div class="section-header fade-in">
+              <span class="tag">Contact Details</span>
+              <h2>We'd Love to Hear From You</h2>
+              <div class="divider left"></div>
+              <p>Whether you have a question about our menu, a private event inquiry, or simply want to say hello — our team is here.</p>
+            </div>
+            <div class="contact-details">
+              <div class="contact-card fade-in">
+                <div class="contact-card-icon">📍</div>
+                <div><h4>Address</h4><p>37/3/E, Highlevel Road, Colombo 05<br>Sri Lanka</p></div>
+              </div>
+              <div class="contact-card fade-in">
+                <div class="contact-card-icon">📞</div>
+                <div><h4>Telephone</h4><p>011 2 123 456</p></div>
+              </div>
+              <div class="contact-card fade-in">
+                <div class="contact-card-icon">✉️</div>
+                <div><h4>Email</h4><p>UrbanFork26.com<br>events@Urban.com</p></div>
+              </div>
+              <div class="contact-card fade-in">
+                <div class="contact-card-icon">🕐</div>
+                <div><h4>Hours</h4><p>Mon–Fri: 12pm–2:30pm &amp; 6pm–10:30pm<br>Sat–Sun: 11:30am–11pm</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card fade-in">
+            <h3>Send Us a Message</h3>
+            <form id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="con-name">Full Name *</label>
+                <input type="text" id="con-name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="con-email">Email Address *</label>
+                <input type="email" id="con-email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="con-subject">Subject</label>
+                <select id="con-subject">
+                  <option>General Enquiry</option>
+                  <option>Reservation Question</option>
+                  <option>Private Events</option>
+                  <option>Press &amp; Media</option>
+                  <option>Feedback</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="con-message">Message *</label>
+                <textarea id="con-message" placeholder="How can we help you?" style="min-height:130px" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-contact"></div>
+  </div><!-- end page-contact -->
+
+
+  <!-- ===================== FOOTER TEMPLATE ===================== -->
+  <template id="footer-template">
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-name">Arun Perera</div>
+            <div class="footer-brand-tagline">Fine Dining Since 2009</div>
+            <p style="font-size:0.88rem;line-height:1.7">Award-winning French-Mediterranean cuisine in the heart of Sri Lanka. An experience for all the senses.</p>
+            <div class="footer-socials">
+              <a class="social-btn" href="#" aria-label="Instagram">📸</a>
+              <a class="social-btn" href="#" aria-label="Facebook">👍</a>
+              <a class="social-btn" href="#" aria-label="Twitter">🐦</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a data-page="home">Home</a></li>
+              <li><a data-page="about">About Us</a></li>
+              <li><a data-page="menu">The Menu</a></li>
+              <li><a data-page="gallery">Gallery</a></li>
+              <li><a data-page="reservation">Reservations</a></li>
+              <li><a data-page="contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a data-page="menu">Starters</a></li>
+              <li><a data-page="menu">Main Courses</a></li>
+              <li><a data-page="menu">Desserts</a></li>
+              <li><a data-page="menu">Wine List</a></li>
+              <li><a data-page="reservation">Private Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-hours">
+            <h4>Opening Hours</h4>
+            <p>Mon – Fri<br><span>12:00 PM – 10:30 PM</span></p>
+            <p style="margin-top:10px">Sat – Sun<br><span>11:30 AM – 11:00 PM</span></p>
+            <p style="margin-top:16px;font-size:0.82rem">37/3/E, Highlevel Road, Colombo 05<br>Sri Lanka</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Arun Perera. All rights reserved.</p>
+          <p>Designed with ❤️ for fine dining lovers everywhere.</p>
+        </div>
+      </div>
+    </footer>
+  </template>
+
+
+  <!-- ===================== JQUERY + MAIN JS ===================== -->
+  <script>
+    $(document).ready(function () {
+
+      /* ── INJECT FOOTER INTO EVERY PAGE ── */
+      const footerHTML = $('#footer-template').html();
+      $('[id^="footer-"]').each(function () { $(this).html(footerHTML); });
+
+      /* ── MENU DATA (AJAX simulation) ── */
+      const menuData = {
+        starters: [
+          { name: 'Lobster Bisque',    desc: 'Velvety cream soup with cognac-flambéed lobster and chive oil.',             price: 'Rs.1000', img: 'photo-1547592180-85f173990554.jpg', badge: 'chef',    bl: "Chef's Pick" },
+          { name: 'Burrata Caprese',   desc: 'Fresh burrata, heirloom tomatoes, basil pesto and aged balsamic.',           price: 'Rs.1750', img: 'gallery-2.jpg', badge: 'veg',     bl: 'Vegetarian' },
+          { name: 'Tuna Tartare',      desc: 'Hand-cut yellowfin tuna, avocado cream, sesame and microgreens.',            price: 'Rs.2000', img: 'photo-1599021456807-25db0f974333.jpg', badge: 'popular', bl: 'Popular' },
+          { name: 'Truffle Arancini',  desc: 'Crispy risotto balls filled with black truffle and fontina cheese.',         price: 'Rs.1500', img: 'photo-1601050690597-df0568f70950.jpg', badge: 'veg',     bl: 'Vegetarian' },
+        ],
+        mains: [
+          { name: 'Filet Mignon',       desc: '8oz prime beef, red wine reduction, truffle pomme purée, haricots verts.',  price: 'Rs.1500', img: 'anh-nguyen-kcA-c3f_3FE-unsplash.jpg', badge: 'chef',    bl: "Chef's Pick" },
+          { name: 'Pan-Seared Duck',    desc: 'Magret duck breast, cherry gastrique, root vegetable gratin.',              price: 'Rs.1800', img: 'photo-1518492104633-130d0cc84637.jpg', badge: '',       bl: '' },
+          { name: 'Salmon En Croûte',   desc: 'Atlantic salmon in puff pastry, dill cream sauce, asparagus.',             price: 'Rs.1750', img: 'photo-1519708227418-c8fd9a32b7a2.jpg', badge: 'popular', bl: 'Popular' },
+          { name: 'Mushroom Risotto',   desc: 'Wild porcini, aged parmesan, white truffle oil and fresh chervil.',        price: 'Rs.1500', img: 'pngtree-authentic-italian-pizza-with-cheese-and-fresh-vegetable-toppings-png-image_14714611.png', badge: 'veg',     bl: 'Vegetarian' },
+          { name: 'Rack of Lamb',       desc: 'French-trimmed rack, herb crust and Provençal ratatouille.',               price: 'Rs.2800', img: 'photo-1544025162-d76694265947.jpg', badge: '',       bl: '' },
+        ],
+        desserts: [
+          { name: 'Crème Brûlée',      desc: 'Classic vanilla custard, caramelised sugar crust and fresh berries.',       price: 'Rs.980', img: 'photo-1470124182917-cc6e71b22ecc.jpg', badge: 'popular', bl: 'Popular' },
+          { name: 'Chocolate Fondant', desc: 'Warm dark chocolate cake, molten centre and vanilla bean ice cream.',        price: 'Rs.1280', img: 'photo-1606313564200-e75d5e30476c.jpg', badge: 'chef',    bl: "Chef's Pick" },
+          { name: 'Tarte Tatin',       desc: 'Caramelised apple tart, flaky pastry and crème fraîche.',                   price: 'Rs.1350', img: 'joyful-vT5xrj3z1OE-unsplash.jpg', badge: 'veg',     bl: 'Vegetarian' },
+        ],
+        drinks: [
+          { name: 'Château Margaux',   desc: 'Premier Grand Cru Classé Bordeaux — blackcurrant, cedar and silky tannins.', price: 'Rs.850', img: 'cold-beverages.png', badge: '',       bl: '' },
+          { name: 'Champagne Rosé',    desc: 'Billecart-Salmon Rosé — delicate bubbles with strawberry and brioche.',     price: 'Rs.800',  img: 'ash-edmonds-fsI-_MRsic0-unsplash.jpg', badge: 'popular', bl: 'Popular' },
+          { name: 'Aurel Mule',        desc: 'House cocktail: cognac, ginger beer, fresh lime, edible gold flakes.',      price: 'Rs.750',  img: 'photo-1551538827-9c037cb4f32a.jpg', badge: 'chef',    bl: "Chef's Pick" },
+        ]
+      };
+
+      function buildCard(item) {
+        const badge = item.badge ? `<span class="menu-badge ${item.badge}">${item.bl}</span>` : '';
+        return `
+          <div class="menu-item fade-in">
+            <div class="menu-item-img" style="background-image:url('${item.img}')"></div>
+            <div class="menu-item-body">
+              <h4>${item.name}</h4>
+              <p>${item.desc}</p>
+              <div class="menu-item-footer">
+                <span class="menu-price">${item.price}</span>
+                ${badge}
+              </div>
+            </div>
+          </div>`;
+      }
+
+      function loadMenu(cat) {
+        const $grid = $('#menu-grid');
+        const $loader = $('#menu-loader');
+        $grid.empty();
+        $loader.show();
+
+        /* Simulated AJAX — in production replace with:
+           $.ajax({ url: 'api/menu.php', data: { category: cat },
+                    success: function(data) { ... }, error: ... })        */
+        setTimeout(function () {
+          $loader.hide();
+          const items = cat === 'all'
+            ? [...menuData.starters, ...menuData.mains, ...menuData.desserts, ...menuData.drinks]
+            : (menuData[cat] || []);
+          items.forEach(i => $grid.append(buildCard(i)));
+          setTimeout(checkFade, 60);
+        }, 550);
+      }
+
+      /* ── ROUTER ── */
+      function goTo(pageId) {
+        const valid = ['home','about','menu','gallery','reservation','contact'];
+        if (!valid.includes(pageId)) pageId = 'home';
+        $('.page').removeClass('active');
+        $('#page-' + pageId).addClass('active');
+        $('.nav-links a, .mobile-menu a').removeClass('active');
+        $('[data-page="' + pageId + '"]').addClass('active');
+        $('.mobile-menu').removeClass('open');
+        $('#hamburger').removeClass('open');
+        $('html, body').animate({ scrollTop: 0 }, 160);
+        setTimeout(checkFade, 100);
+        if (pageId === 'menu') loadMenu('all');
+        window.location.hash = pageId;
+      }
+
+      $(document).on('click', '[data-page]', function (e) {
+        e.preventDefault();
+        goTo($(this).data('page'));
+      });
+
+      const h = window.location.hash.replace('#', '');
+      goTo(h || 'home');
+
+      /* ── NAVBAR SCROLL ── */
+      $(window).on('scroll', function () {
+        $('#navbar').toggleClass('scrolled', $(this).scrollTop() > 60);
+      }).trigger('scroll');
+
+      /* ── HAMBURGER ── */
+      $('#hamburger').on('click', function () {
+        $(this).toggleClass('open');
+        $('#mobile-menu').toggleClass('open');
+      });
+
+      /* ── FADE-IN ON SCROLL ── */
+      function checkFade() {
+        $('.fade-in:not(.visible)').each(function () {
+          if ($(this).offset().top < $(window).scrollTop() + $(window).height() * 0.93) {
+            $(this).addClass('visible');
+          }
+        });
+      }
+      $(window).on('scroll', checkFade);
+
+      /* ── MENU FILTER BUTTONS ── */
+      $(document).on('click', '.filter-btn', function () {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        loadMenu($(this).data('category'));
+      });
+
+      /* ── GALLERY LIGHTBOX ── */
+      $(document).on('click', '.gallery-item', function () {
+        const url = $(this).data('full') || $(this).find('.gallery-img').css('background-image').replace(/^url\(["']?/,'').replace(/["']?\)$/,'');
+        $('#lightbox-img').attr('src', url);
+        $('#lightbox').addClass('open');
+        $('body').css('overflow', 'hidden');
+      });
+      $(document).on('click', '#lightbox, #lightbox-close', function () {
+        $('#lightbox').removeClass('open');
+        $('body').css('overflow', '');
+      });
+      $(document).on('click', '#lightbox-img', e => e.stopPropagation());
+
+      /* ── TOAST ── */
+      function toast(msg) {
+        $('#toast').text(msg).addClass('show');
+        setTimeout(() => $('#toast').removeClass('show'), 4200);
+      }
+
+      /* ── RESERVATION FORM ── */
+      $('#res-date').attr('min', new Date().toISOString().split('T')[0]);
+
+      $(document).on('submit', '#reservation-form', function (e) {
+        e.preventDefault();
+        const n = $('#res-name').val().trim(), em = $('#res-email').val().trim(),
+              d = $('#res-date').val(), t = $('#res-time').val(), g = $('#res-guests').val();
+        if (!n || !em || !d || !t || !g) { toast('⚠️  Please fill in all required fields.'); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { toast('⚠️  Please enter a valid email address.'); return; }
+        const $btn = $(this).find('.form-submit');
+        $btn.text('Reserving…').prop('disabled', true);
+        /* Simulate: $.ajax({ url:'reserve.php', method:'POST', data:$(this).serialize() }) */
+        setTimeout(() => {
+          $btn.text('Reserve My Table').prop('disabled', false);
+          this.reset();
+          toast('✅  Reservation confirmed! Check your email for details.');
+        }, 1200);
+      });
+
+      /* ── CONTACT FORM ── */
+      $(document).on('submit', '#contact-form', function (e) {
+        e.preventDefault();
+        const n = $('#con-name').val().trim(), em = $('#con-email').val().trim(), msg = $('#con-message').val().trim();
+        if (!n || !em || !msg) { toast('⚠️  Please fill in all required fields.'); return; }
+        const $btn = $(this).find('button[type="submit"]');
+        $btn.text('Sending…').prop('disabled', true);
+        /* Simulate: $.ajax({ url:'contact.php', method:'POST', data:$(this).serialize() }) */
+        setTimeout(() => {
+          $btn.text('Send Message').prop('disabled', false);
+          this.reset();
+          toast('✅  Message sent! We\'ll get back to you within 24 hours.');
+        }, 1000);
+      });
+
+      /* ── DISH ADD BUTTON ── */
+      $(document).on('click', '.dish-add', function () {
+        toast('🍽️  Added to your order!');
+      });
+
+    }); // end ready
+  </script>
+</body>
+</html>
